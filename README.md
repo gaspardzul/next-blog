@@ -1,7 +1,6 @@
 Para ejecutar hay que correr
 
-$ yarn
-$ yarn dev
+$ yarn && yarn dev
 
 Requerimientos
 node >=16
