@@ -1,1 +1,7 @@
-This is a starter template for [Learn Next.js](https://nextjs.org/learn).
+Para ejecutar hay que correr
+
+$ yarn && yarn dev
+
+Requerimientos
+node >=16
+yarn 
