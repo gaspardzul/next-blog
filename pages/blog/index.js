@@ -1,19 +1,13 @@
 import Head from 'next/head';
 import styles from '../../styles/Home.module.css';
 import {useState} from "react";
+import PageTitle from "../../components/PageTitle";
 
 const Home =()=> {
 
     const [pageName,setPageName] = useState("Pagina de capacitación")
     const numTitles = [1,2,3,4]
     const objeto = {};
-
-    const PageTitle=({num})=>{
-
-        return (
-            <p>Hola gaspar bienvenido a Blog {pageName} {num}</p>
-        )
-    }
 
 
     return (
@@ -25,7 +19,7 @@ const Home =()=> {
             <main>
                 {
                     numTitles.map((item)=>{
-                        return <PageTitle key={item} num={item}/>
+                        return <PageTitle key={item} pageName={pageName} num={item}/>
                     })
                 }
 

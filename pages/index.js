@@ -1,50 +1,32 @@
 import Head from 'next/head';
 import styles from '../styles/Home.module.css';
 import {useState} from "react";
+import PageTitle from "../components/PageTitle";
+import PostList from "../components/PostList";
 
 const Home =()=> {
 
-  const [pageName,setPageName] = useState("Pagina de capacitación")
-  const numTitles = [1,2,3,4]
-  const objeto = {};
+    return (
+        <div className={styles.container}>
+            <Head>
+                <title>Create Next App</title>
+                <link rel="icon" href="/favicon.ico" />
+            </Head>
+            <main>
+                <PostList/>
+            </main>
+            <footer>
+                <a
+                    href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    Powered by{' '}
+                    <img src="/vercel.svg" alt="Vercel" className={styles.logo} />
+                </a>
+            </footer>
 
-  const PageTitle=({num})=>{
-
-      return (
-          <p>Hola gaspar bienvenido a {pageName} {num}</p>
-      )
-  }
-
-
-  return (
-    <div className={styles.container}>
-      <Head>
-        <title>Create Next App</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-      <main>
-          {
-              numTitles.map((item)=>{
-                  return <PageTitle key={item} num={item}/>
-              })
-          }
-
-          <p>{objeto?.persona?.id ? objeto?.persona?.id : 'N/A'}</p>
-
-        <button onClick={()=> setPageName('Pagina de cursos')}>Cambiar valor</button>
-      </main>
-      <footer>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{' '}
-          <img src="/vercel.svg" alt="Vercel" className={styles.logo} />
-        </a>
-      </footer>
-
-      <style jsx>{`
+            <style jsx>{`
         main {
           padding: 5rem 0;
           flex: 1;
@@ -81,7 +63,7 @@ const Home =()=> {
         }
       `}</style>
 
-      <style jsx global>{`
+            <style jsx global>{`
         html,
         body {
           padding: 0;
@@ -94,8 +76,8 @@ const Home =()=> {
           box-sizing: border-box;
         }
       `}</style>
-    </div>
-  )
+        </div>
+    )
 }
 
 export default Home;
