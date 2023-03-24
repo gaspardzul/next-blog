@@ -1,8 +1,11 @@
 import axios from 'axios'
-import {useEffect} from "react";
+import {useEffect, useState} from "react";
+import PostItem from "./PostItem";
 
 
-const PostList =()=> {
+const PostList =({title='Listado de posts'})=> {
+
+    const [posts, setPosts] = useState([]);
 
     useEffect(()=>{
         getPostList()
@@ -12,17 +15,23 @@ const PostList =()=> {
     const getPostList=async()=>{
         const url = 'https://jsonplaceholder.typicode.com/posts';
         try{
-            const res = await axios.get(url)
-            console.log(res)
+            const {data} = await axios.get(url)
+            data ? setPosts(data):setPosts([]);
         }catch (e){
             console.log(e)
+            setPosts([])
         }
     }
 
 
     return (
         <div>
-            <p>PostList</p>
+            <p>{title}</p>
+            {
+                posts && posts.map((p)=> {
+                    return <PostItem key={p.id} post={p}/>
+                })
+            }
 
         </div>
     )

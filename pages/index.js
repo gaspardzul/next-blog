@@ -13,7 +13,7 @@ const Home =()=> {
                 <link rel="icon" href="/favicon.ico" />
             </Head>
             <main>
-                <PostList/>
+                <PostList title={'Listado principal de Publicaciones'}/>
             </main>
             <footer>
                 <a
